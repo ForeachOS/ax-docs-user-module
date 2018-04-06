@@ -1,0 +1,5 @@
+name: user-module
+title: "Module: User Management"
+version: 3.0.0
+nav:
+- modules/ROOT/nav.adoc
