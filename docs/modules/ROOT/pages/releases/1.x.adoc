@@ -1,0 +1,4 @@
+= 1.x.x release notes
+
+== 1.1.0.RELEASE
+Initial public release available on http://search.maven.org/[Maven central].

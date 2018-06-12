@@ -1,1 +1,9 @@
-* Creating a form
+* xref:index.adoc[Quick start]
+* xref:releases/index.adoc[Releases]
+** xref:releases/2.x.adoc[2.x]
+** xref:releases/1.x.adoc[1.x]
+
+* xref:configuration-properties.adoc[Configuration properties]
+
+* xref:performance-tuning.adoc[Performance tuning]
+** xref:performance-tuning.adoc#caching[Caching]

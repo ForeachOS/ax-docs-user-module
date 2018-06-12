@@ -1,0 +1,35 @@
+= Module settings
+
+All properties start with the *userModule.* prefix.
+
+|===
+|Property |Type |Description |Default
+
+|password-encoder
+|`org.springframework.security.crypto.password.PasswordEncoder`
+|Optional PasswordEncoder instance to be used.  Defaults to BCrypt if none is specified.
+|
+
+|use-email-as-username
+|`boolean`
+|Specifies whether to use the email for login and registration instead of username.
+|_false_
+
+|require-email-unique
+|`boolean`
+|Specifies whether the email field is unique, must be true if use-email-as-username is true.
+|_false_
+
+|enable-default-acls
+|`boolean`
+|Specifies whether default ACLs should be created via interceptors, such as for Groups.
+Only relevant if SpringSecurityAclModule is active.
+|_false_
+
+|user-label-expression
+|`String`
+|SpEL expression to apply on the `User` instance when generating a pretty label (mainly for UI purposes).
+Defaults to 'label' which means the `getLabel()` will be used.
+|label
+
+|===

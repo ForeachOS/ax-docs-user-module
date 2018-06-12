@@ -1,0 +1,6 @@
+= 3.x.x release notes
+
+[#3-0-0]
+== 3.0.0.RELEASE
+
+* fix issues with Spring Security configuration in Across 3.0.0
