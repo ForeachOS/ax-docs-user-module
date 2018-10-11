@@ -4,6 +4,7 @@
 ** xref:releases/2.x.adoc[2.x]
 ** xref:releases/1.x.adoc[1.x]
 
+* xref:custom-user-properties.adoc[Custom User properties and Group properties]
 * xref:configuration-properties.adoc[Configuration properties]
 
 * xref:performance-tuning.adoc[Performance tuning]

@@ -1,0 +1,78 @@
+= Custom User Properties and Group Properties
+
+`UserModule` provides two implementations of `EntityProperties`, `UserProperties` and `GroupProperties`.
+
+These can be used to to additional key/value information, linked to a `User` or a `Group`.
+
+.Example on how to register your properties
+[source,java,indent=0]
+[subs="verbatim,quotes,attributes"]
+----
+@Configuration
+public class ApplicationConfiguration
+{
+	@Autowired
+	public void registerCustomProperties( UserPropertiesRegistry userPropertiesRegistry,
+	                                      GroupPropertiesRegistry groupPropertiesRegistry,
+	                                      AcrossModule currentModule ) {
+		userPropertiesRegistry.register( currentModule, "avatar", TypeDescriptor.valueOf( String.class ) ); # <1>
+		groupPropertiesRegistry.register( currentModule, "groupManager", TypeDescriptor.valueOf( User.class ) ); # <2>
+	}
+}
+----
+
+<1> Register the `avatar` property for a user, its value is a `String` (for example and URL).
+<2>	Register the `groupManager` property which references who manages a `Group`. It is of type `User`
+
+After registering your properties you can save and retrieve the values with its service.
+
+.Example on how to register your properties
+[source,java,indent=0]
+[subs="verbatim,quotes,attributes"]
+----
+    @Autowired
+    private UserPropertiesService userPropertiesService;
+    @Autowired
+    private GroupPropertiesService groupPropertiesService;
+
+
+    public void saveUserAvatar( User user, String url ) {
+        UserProperties userProperties = userPropertiesService.getProperties( user.getId() );
+        userProperties.set( "avatar" , url );
+        userPropertiesService.saveProperties( userProperties );
+    }
+
+    public void saveGroupManager( Group group, User manager ) {
+        GroupProperties groupProperties = groupPropertiesService.getProperties( group.getId() );
+        groupProperties.set( "groupManager" , manager );
+        groupPropertiesService.saveProperties( userProperties );
+    }
+----
+
+Note that you will need to register a `ConversionService` to make user it can serialize the manager of type `User`.
+
+The above example should be rewritten:
+
+.Example on how to register a `ConversionService` for your property
+[source,java,indent=0]
+[subs="verbatim,quotes,attributes"]
+----
+@Configuration
+public class ApplicationConfiguration
+{
+	@Autowired
+	public void registerCustomProperties( UserPropertiesRegistry userPropertiesRegistry,
+	                                      GroupPropertiesRegistry groupPropertiesRegistry,
+	                                      AcrossModule currentModule ) {
+		userPropertiesRegistry.register( currentModule, "avatar", TypeDescriptor.valueOf( String.class ) );
+
+        GenericConversionService managerConversionService = new GenericConversionService();
+        managerConversionService.addConverter( User.class, String.class, user -> String.valueOf( user.getId() ) ); # <1>
+
+		groupPropertiesRegistry.register( currentModule, "groupManager", TypeDescriptor.valueOf( User.class ), null, managerConversionService ); # <2>
+	}
+}
+----
+
+<1> Add a converter which can convert the `User` class to the `String` class, by getting the id of the user.
+<2> Pass this `ConversionService` to the `PropertiesRegistry`.
