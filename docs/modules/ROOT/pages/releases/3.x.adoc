@@ -1,9 +1,9 @@
 = 3.x.x release notes
 
 [#3-1-0]
-== 3.1.0-SNAPSHOT
+== 3.1.0.RELEASE
 
-* TODO
+* the current user display name is now correctly rendered as the user context menu in Admin Web
 
 [#3-0-0]
 == 3.0.0.RELEASE
