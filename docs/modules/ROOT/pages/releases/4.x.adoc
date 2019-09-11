@@ -1,0 +1,5 @@
+= 4.x.x release notes
+
+[#4-0-0]
+== 4.0.0.RELEASE
+* *Requires Across 5.0.0.*
