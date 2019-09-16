@@ -3,3 +3,5 @@
 [#4-0-0]
 == 4.0.0.RELEASE
 * *Requires Across 5.0.0.*
+* Spring upgrade related changes
+* The deprecated class `GroupSelectionListViewFactory` has been removed.
