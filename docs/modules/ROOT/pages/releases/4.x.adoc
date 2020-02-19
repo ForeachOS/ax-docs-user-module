@@ -5,3 +5,6 @@
 * *Requires Across 5.0.0.*
 * Spring upgrade related changes
 * The deprecated class `GroupSelectionListViewFactory` has been removed.
+* Liquibase version bumped to `3.7.0` for SQL Server support
+* `CurrentUserProxyImpl` is now deprecated and will be removed in the future
+* UserDetailsService now returns SecurityPrincipalUserDetails to uniquely identify the user in multi-directory scenarios
