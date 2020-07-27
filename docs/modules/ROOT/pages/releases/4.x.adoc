@@ -2,7 +2,7 @@
 
 [#4-0-0]
 == 4.0.0.RELEASE
-* *Requires Across 5.0.0.*
+* *Requires Across 5.0.1.*
 * Spring upgrade related changes
 * The deprecated class `GroupSelectionListViewFactory` has been removed.
 * Liquibase version bumped to `3.7.0` for SQL Server support
