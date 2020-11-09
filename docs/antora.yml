@@ -1,5 +1,5 @@
 name: user-module
 title: "Module: User Management"
-version: 4.0.0-SNAPSHOT
+version: 4.1.0-SNAPSHOT
 nav:
 - modules/ROOT/nav.adoc

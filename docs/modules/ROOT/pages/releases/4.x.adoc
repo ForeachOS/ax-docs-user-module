@@ -1,7 +1,15 @@
 = 4.x.x release notes
 
+[#4-1-0]
+== 4.1.0.RELEASE
+
+* Changed `new PageRequest()` to `PageRequest.of()`
+* Changed `new Sort()` to `Sort.by()`
+* Switched to JUnit5
+
 [#4-0-0]
 == 4.0.0.RELEASE
+
 * *Requires Across 5.0.0.*
 * Spring upgrade related changes
 * The deprecated class `GroupSelectionListViewFactory` has been removed.
